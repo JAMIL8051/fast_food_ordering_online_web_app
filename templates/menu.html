@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menu</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <h1>Menu</h1>
+    <form action="/order" method="post">
+      {% for item, price in menu.items() %}
+      <input type="checkbox" name="item" value="{{ item }}" /> {{ item }}- ${{
+      price }} {% endfor %}
+      <input type="submit" value="Place Order" />
+    </form>
+  </body>
+</html>
